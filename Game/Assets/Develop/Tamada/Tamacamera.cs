@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class Tamacamera : MonoBehaviour
 {
     //private GameObject player;   //プレイヤー情報格納用
     public Transform target;    //追従するターゲット。
