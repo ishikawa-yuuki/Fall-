@@ -16,7 +16,7 @@ public class title : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("menyu0");
         }
     }
 }
