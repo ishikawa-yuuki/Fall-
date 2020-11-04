@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class menyu1 : MonoBehaviour
+public class menyu2 : MonoBehaviour
 {
     public void OnClicStartButton()
     {
-        SceneManager.LoadScene("set");
+        SceneManager.LoadScene("Main");
 
     }
 }

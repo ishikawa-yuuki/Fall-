@@ -17,7 +17,7 @@ public class result1 : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("title");
+            SceneManager.LoadScene("Menyu");
         }
     }
 }
