@@ -17,9 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Develop/Ide/game0.unity
     guid: ddbfb1d0d88785243b7492bca4c4414f
-  - enabled: 1
-    path: Assets/MainGame/MainScene/Main.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/MainGame/MainScene/Menyu.unity
     guid: a55396aae22e003408e6c0becfd2fb15
@@ -29,4 +29,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MainGame/MainScene/result.unity
     guid: a2de749dcdda2b243b72757b1bb8ee41
+  - enabled: 1
+    path: Assets/Develop/Ide/menyu0.unity
+    guid: 78d4bf45eba858b4c89a6674fa1dd005
+  - enabled: 1
+    path: Assets/MainGame/MainScene/Main.unity
+    guid: 760b1886b827bfc4786256c2e62e48d8
+  - enabled: 1
+    path: Assets/MainGame/MainScene/set.unity
+    guid: 3986812ea0fe24c46bc6ea8c6c829361
   m_configObjects: {}
