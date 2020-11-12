@@ -5,10 +5,12 @@ using UnityEngine;
 public class UIController_World : MonoBehaviour
 {
     private RectTransform myRectTfm;
-
+    [SerializeField]
+    private bool state = true;
     void Start()
     {
         myRectTfm = GetComponent<RectTransform>();
+        gameObject.SetActive(state);
     }
 
     void Update()

@@ -20,19 +20,19 @@ public class Test_move1 : MonoBehaviour
 
     //　段差を昇る為のレイを飛ばす位置
     [SerializeField]
-    private Transform stepRay;
+    private Transform stepRay =null;
     //　レイを飛ばす距離
-    [SerializeField]
-    private float stepDistance = 2.5f;
-    //　昇れる段差
-    [SerializeField]
-    private float stepOffset = 0.3f;
-    //　昇れる角度
-    [SerializeField]
-    private float slopeLimit = 65f;
-    //　昇れる段差の位置から飛ばすレイの距離
-    [SerializeField]
-    private float slopeDistance = 5f;
+    //[SerializeField]
+    //private float stepDistance = 2.5f;
+    ////　昇れる段差
+    //[SerializeField]
+    //private float stepOffset = 0.3f;
+    ////　昇れる角度
+    //[SerializeField]
+    //private float slopeLimit = 65f;
+    ////　昇れる段差の位置から飛ばすレイの距離
+    //[SerializeField]
+    //private float slopeDistance = 5f;
     // Use this for initialization
     void Start()
     {
