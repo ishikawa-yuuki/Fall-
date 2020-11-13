@@ -45,14 +45,14 @@
                fixed4 blue = fixed4(0 + tex.y / 3, 120 / 255.0 + tex.y / 1.2,     1 , 1);
                fixed4 white = fixed4(0 + tex.y / 2, 180 / 255.0 + tex.y,         1 , 1);
                fixed4 white_1 = fixed4(180 / 255.0, 250 / 255.0,    1 , 1);
-               fixed len = distance(i.uv, fixed2(0.5,0.5)) - _Time;
+               fixed len = distance(i.uv, fixed2(0.65,0.5)) - _Time;
                if (step(0.8, sin(len * 20)))
                {
-                   return lerp(blue, white,(smoothstep(0.8,0.9, sin(len * 20))));
+                   return lerp(blue, white,(smoothstep(0.8,0.95, sin(len * 20))));
                }
                if (step(0.85, sin(len * 25)))
                {
-                   return lerp(blue, white_1, (smoothstep(0.85, 0.9,sin(len * 25))));
+                   return lerp(blue, white_1, (smoothstep(0.85, 0.95,sin(len * 25))));
                }
                return blue;
             }
