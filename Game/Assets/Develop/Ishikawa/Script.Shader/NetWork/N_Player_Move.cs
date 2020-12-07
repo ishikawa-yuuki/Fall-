@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Test_move1 : MonoBehaviour
+using Photon.Pun;
+using Photon.Realtime;
+public class N_Player_Move : MonoBehaviour
 {
     //十字キーとマウスで操作(矢印キー＝前後左右移動，マウス左右＝回転)
-
+    //オンライン化に必要なコンポーネントを設定
+    public PhotonView myPV;
+    public PhotonTransformView myPTV;
     public float moveSpeed = 6.0F;       //歩行速度
     public float jumpSpeed = 8.0F;      //ジャンプ力
 
+    private Camera mainCam;
     private Animator anim;
     private Vector3 velocity;
     private bool isGround = false;
@@ -20,7 +24,7 @@ public class Test_move1 : MonoBehaviour
 
     //　段差を昇る為のレイを飛ばす位置
     [SerializeField]
-    private Transform stepRay =null;
+    private Transform stepRay;
     //　レイを飛ばす距離
     //[SerializeField]
     //private float stepDistance = 2.5f;
@@ -36,6 +40,12 @@ public class Test_move1 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (myPV.IsMine)    //自キャラであれば実行
+        {
+            //MainCameraのtargetにこのゲームオブジェクトを設定
+            mainCam = Camera.main;
+            mainCam.GetComponent<N_Player_Camera>().target = this.gameObject.transform;
+        }
         rd = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         layerMask = ~(1 << LayerMask.NameToLayer("Player"));
@@ -44,6 +54,10 @@ public class Test_move1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!myPV.IsMine)
+        {
+            return;
+        }
         //　確認の為レイを視覚的に見えるようにする
         Debug.DrawLine(stepRay.position + Vector3.up * 0.1f, stepRay.position + Vector3.down * d, Color.red);
         if (isGround)
@@ -83,9 +97,9 @@ public class Test_move1 : MonoBehaviour
 
             // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
             velocity += moveForward * moveSpeed;
-            if(velocity == Vector3.zero)
+            if (velocity == Vector3.zero)
             {
-                anim.SetBool("isWalk",false);
+                anim.SetBool("isWalk", false);
             }
             else
             {
@@ -118,7 +132,7 @@ public class Test_move1 : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        
+
         //　地面に着地したかどうかの判定
         if (Physics.CheckSphere(stepRay.position, d, layerMask))
         {
@@ -131,12 +145,12 @@ public class Test_move1 : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-       
+
         //　地面から降りた時の処理
         //　Fieldレイヤーのゲームオブジェクトから離れた時
         if (1 << collision.gameObject.layer != layerMask)
         {
-            
+
             //　下向きにレイヤーを飛ばしFieldレイヤーと接触しなければ地面から離れたと判定する
             if (!Physics.Linecast(stepRay.position + Vector3.up * 0.1f, stepRay.position + Vector3.down * d, layerMask))
             {

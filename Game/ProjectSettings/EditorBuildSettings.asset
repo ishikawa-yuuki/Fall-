@@ -27,6 +27,12 @@ EditorBuildSettings:
     path: Assets/MainGame/MainScene/Menyu.unity
     guid: a55396aae22e003408e6c0becfd2fb15
   - enabled: 1
+    path: Assets/MainGame/MainScene/RoomCreate.unity
+    guid: 550634428358deb48aa1817c992b126c
+  - enabled: 1
+    path: Assets/MainGame/MainScene/Room.unity
+    guid: f7acf2c591eeada4786359d07314c2a2
+  - enabled: 1
     path: Assets/MainGame/MainScene/Main.unity
     guid: 760b1886b827bfc4786256c2e62e48d8
   - enabled: 1

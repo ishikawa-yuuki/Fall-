@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GoalCountUI
   - PlayerAI
+  - GamePlayerManager
   layers:
   - Default
   - TransparentFX
