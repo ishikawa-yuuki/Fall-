@@ -6,14 +6,17 @@ public class Player_Move : MonoBehaviour
 {
     //十字キーとマウスで操作(矢印キー＝前後左右移動，マウス左右＝回転)
 
-    public float moveSpeed = 6.0F;       //歩行速度
+    private float moveSpeed = 10.0f;              // 移動速度
+    private float moveForceMultiplier=50.0f;    // 移動速度の入力に対する追従度
+   
+    
     public float jumpSpeed = 8.0F;      //ジャンプ力
 
     private Animator anim;
-    private Vector3 velocity;
+    private Vector3 moveVector;
     private bool isGround = false;
-    private Rigidbody rd;
-    private float h, v;
+    private Rigidbody _rb;
+    private float _horizontalInput, _verticalInput;
     private float d = 0.4f;
     //　Playerレイヤー以外のレイヤーマスク
     int layerMask;
@@ -37,7 +40,7 @@ public class Player_Move : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rd = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         layerMask = ~(1 << LayerMask.NameToLayer("Player"));
     }//Start()
@@ -53,10 +56,10 @@ public class Player_Move : MonoBehaviour
         Debug.DrawLine(stepRay.position + Vector3.up * 0.1f, stepRay.position + Vector3.down * d, Color.red);
         if (isGround)
         {
-            velocity = Vector3.zero;
+            moveVector = Vector3.zero;
 
-            h = Input.GetAxis("Horizontal");    //左右矢印キーの値(-1.0~1.0)
-            v = Input.GetAxis("Vertical");      //上下矢印キーの値(-1.0~1.0)
+            _horizontalInput = Input.GetAxis("Horizontal");    //左右矢印キーの値(-1.0~1.0)
+            _verticalInput = Input.GetAxis("Vertical");      //上下矢印キーの値(-1.0~1.0)
 
             ////　ステップ用のレイが地面に接触しているかどうか
             //if (Physics.Linecast(stepRay.position, stepRay.position + stepRay.forward * stepDistance, out var stepHit, LayerMask.GetMask("Field", "Block")))
@@ -84,11 +87,11 @@ public class Player_Move : MonoBehaviour
             Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
 
             // 方向キーの入力値とカメラの向きから、移動方向を決定
-            Vector3 moveForward = cameraForward * v + Camera.main.transform.right * h;
+            Vector3 moveForward = cameraForward * _verticalInput + Camera.main.transform.right * _horizontalInput;
 
             // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
-            velocity += moveForward * moveSpeed;
-            if(velocity == Vector3.zero)
+            moveVector = moveForward * moveSpeed;
+            if(moveVector == Vector3.zero)
             {
                 anim.SetBool("isWalk",false);
             }
@@ -100,7 +103,7 @@ public class Player_Move : MonoBehaviour
             {
                 //　ジャンプしたら接地していない状態にする
                 isGround = false;
-                velocity.y += jumpSpeed;
+                moveVector.y = jumpSpeed;
                 anim.SetTrigger("Jump");
             }
 
@@ -118,7 +121,7 @@ public class Player_Move : MonoBehaviour
     void FixedUpdate()
     {
 
-        rd.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
+        _rb.AddForce(moveForceMultiplier * (moveVector - _rb.velocity));
 
     }
     private void OnCollisionEnter(Collision collision)
@@ -129,7 +132,7 @@ public class Player_Move : MonoBehaviour
         {
             Debug.Log("on");
             isGround = true;
-            velocity.y = 0f;
+            moveVector.y = 0f;
         }
 
     }
