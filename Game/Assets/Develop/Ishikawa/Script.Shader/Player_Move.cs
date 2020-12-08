@@ -54,10 +54,11 @@ public class Player_Move : MonoBehaviour
         }
         //　確認の為レイを視覚的に見えるようにする
         Debug.DrawLine(stepRay.position + Vector3.up * 0.1f, stepRay.position + Vector3.down * d, Color.red);
+       
         if (isGround)
         {
+            
             moveVector = Vector3.zero;
-
             _horizontalInput = Input.GetAxis("Horizontal");    //左右矢印キーの値(-1.0~1.0)
             _verticalInput = Input.GetAxis("Vertical");      //上下矢印キーの値(-1.0~1.0)
 
@@ -121,7 +122,8 @@ public class Player_Move : MonoBehaviour
     void FixedUpdate()
     {
 
-        _rb.AddForce(moveForceMultiplier * (moveVector - _rb.velocity));
+        
+        _rb.MovePosition(transform.position + moveVector  * Time.fixedDeltaTime);
 
     }
     private void OnCollisionEnter(Collision collision)

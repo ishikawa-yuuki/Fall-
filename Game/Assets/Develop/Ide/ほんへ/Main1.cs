@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using Photon.Pun;
 public class Main1 : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -10,7 +10,11 @@ public class Main1 : MonoBehaviour
     {
         
     }
-
+    void Awake()
+    {
+        //ルーム内のクライアントがMasterClientと同じシーンをロードするように設定
+        PhotonNetwork.AutomaticallySyncScene = false;
+    }
     // Update is called once per frame
     void Update()
     {
