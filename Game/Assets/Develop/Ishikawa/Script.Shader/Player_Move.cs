@@ -61,7 +61,6 @@ public class Player_Move : MonoBehaviour
             moveVector = Vector3.zero;
             _horizontalInput = Input.GetAxis("Horizontal");    //左右矢印キーの値(-1.0~1.0)
             _verticalInput = Input.GetAxis("Vertical");      //上下矢印キーの値(-1.0~1.0)
-            moveVector.y -= 5.0f;
             ////　ステップ用のレイが地面に接触しているかどうか
             //if (Physics.Linecast(stepRay.position, stepRay.position + stepRay.forward * stepDistance, out var stepHit, LayerMask.GetMask("Field", "Block")))
             //{
