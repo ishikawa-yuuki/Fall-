@@ -6,11 +6,13 @@ public class CountDemo : MonoBehaviour
 {
 
     public GameObject PL;
+    public GameObject PL2;
     float seconds;
     // Start is called before the first frame update
     void Start()
     {
-        PL.GetComponent<PlayerDemo>().enabled = false;
+        PL.GetComponent<Jump_demo>().enabled = false;
+        PL2.GetComponent<Jump_demo2>().enabled = false;
     }
 
     // Update is called once per frame
@@ -19,7 +21,8 @@ public class CountDemo : MonoBehaviour
         seconds += Time.deltaTime;
         if (seconds >= 4)
         {
-            PL.GetComponent<PlayerDemo>().enabled = true;
+            PL2.GetComponent<Jump_demo2>().enabled = true;
+        PL.GetComponent<Jump_demo>().enabled = true;
         }
             
         }
