@@ -17,14 +17,8 @@ public class result1 : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-           //ネットワーク切断
-            PhotonNetwork.Disconnect();
-
-        }
-        if (!PhotonNetwork.IsConnected)//接続を確認(切断できているかを知るため)
-        {
-            //できていれば遷移。
             SceneManager.LoadScene("Menyu");
+
         }
     }
 }

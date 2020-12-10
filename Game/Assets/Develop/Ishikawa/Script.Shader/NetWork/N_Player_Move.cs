@@ -9,8 +9,8 @@ public class N_Player_Move : MonoBehaviour
     //オンライン化に必要なコンポーネントを設定
     public PhotonView myPV;
     public PhotonTransformView myPTV;
-    public float moveSpeed = 6.0F;       //歩行速度
-    public float jumpSpeed = 8.0F;      //ジャンプ力
+    public float moveSpeed = 8.0F;       //歩行速度
+    public float jumpSpeed = 0.8F;      //ジャンプ力
 
     private Camera mainCam;
     private Animator anim;
@@ -96,7 +96,7 @@ public class N_Player_Move : MonoBehaviour
             Vector3 moveForward = cameraForward * v + Camera.main.transform.right * h;
 
             // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
-            velocity += moveForward * moveSpeed;
+            velocity = moveForward * moveSpeed;
             if (velocity == Vector3.zero)
             {
                 anim.SetBool("isWalk", false);
@@ -109,6 +109,7 @@ public class N_Player_Move : MonoBehaviour
             {
                 //　ジャンプしたら接地していない状態にする
                 isGround = false;
+                velocity *= 0.6f;
                 velocity.y += jumpSpeed;
                 anim.SetTrigger("Jump");
             }
@@ -123,6 +124,10 @@ public class N_Player_Move : MonoBehaviour
 
 
         }//isGround
+        else
+        {
+            velocity.y -= 0.02f;
+        }
     }
     void FixedUpdate()
     {

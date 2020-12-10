@@ -10,7 +10,7 @@ public class Player_Move : MonoBehaviour
     private float moveForceMultiplier=50.0f;    // 移動速度の入力に対する追従度
    
     
-    public float jumpSpeed = 8.0F;      //ジャンプ力
+    public float jumpSpeed = 0.8F;      //ジャンプ力
 
     private Animator anim;
     private Vector3 moveVector;
@@ -61,7 +61,7 @@ public class Player_Move : MonoBehaviour
             moveVector = Vector3.zero;
             _horizontalInput = Input.GetAxis("Horizontal");    //左右矢印キーの値(-1.0~1.0)
             _verticalInput = Input.GetAxis("Vertical");      //上下矢印キーの値(-1.0~1.0)
-
+            moveVector.y -= 5.0f;
             ////　ステップ用のレイが地面に接触しているかどうか
             //if (Physics.Linecast(stepRay.position, stepRay.position + stepRay.forward * stepDistance, out var stepHit, LayerMask.GetMask("Field", "Block")))
             //{
@@ -104,6 +104,7 @@ public class Player_Move : MonoBehaviour
             {
                 //　ジャンプしたら接地していない状態にする
                 isGround = false;
+                moveVector *= 0.6f;
                 moveVector.y = jumpSpeed;
                 anim.SetTrigger("Jump");
             }
@@ -118,6 +119,10 @@ public class Player_Move : MonoBehaviour
 
 
         }//isGround
+        else
+        {
+            moveVector.y -= 0.02f;
+        }
     }
     void FixedUpdate()
     {
