@@ -25,7 +25,8 @@ public class GamePlayerManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient&&Count == PhotonNetwork.CurrentRoom.MaxPlayers)
         {
             PhotonNetwork.CurrentRoom.IsOpen = false;
-            PhotonNetwork.LoadLevel("Main");
+            GetComponent<Stage_Randam>().Randam_Stage();
+           
         }
     }
 
