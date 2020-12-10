@@ -515,7 +515,7 @@ Terrain:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438431011}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 6be20424b314d30449e4eaba0a1318f9, type: 2}
   m_TreeDistance: 5000
@@ -1023,8 +1023,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961710645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 306, y: 26, z: 517.2443}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 306, y: 0, z: 517.2443}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children:
   - {fileID: 663907867}
   m_Father: {fileID: 0}
@@ -1268,12 +1268,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441686002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70e341478242255469559c99ccf32110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CountText: {fileID: 299720163}
+  PL: {fileID: 961710645}
 --- !u!4 &1441686004
 Transform:
   m_ObjectHideFlags: 0

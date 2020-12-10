@@ -5,31 +5,23 @@ using UnityEngine.UI;
 public class CountDemo : MonoBehaviour
 {
 
-    public Text CountText;
-
-    float countdown = 4f;
-    int count;
+    public GameObject PL;
+    float seconds;
     // Start is called before the first frame update
     void Start()
     {
-
+        PL.GetComponent<PlayerDemo>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (countdown >= 0)
+        seconds += Time.deltaTime;
+        if (seconds >= 4)
         {
-            countdown -= Time.deltaTime;
-            count = (int)countdown;
-            CountText.text = count.ToString();
+            PL.GetComponent<PlayerDemo>().enabled = true;
         }
-
-        if (countdown <= 0)
-        {
-            CountText.text = "";
-
+            
         }
-    }
 
 }
