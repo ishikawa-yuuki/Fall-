@@ -9,7 +9,7 @@ public class N_Player_Move : MonoBehaviour
     //オンライン化に必要なコンポーネントを設定
     public PhotonView myPV;
     public PhotonTransformView myPTV;
-    public float moveSpeed = 8.0F;       //歩行速度
+    public float moveSpeed = 10.0F;       //歩行速度
     public float jumpSpeed = 0.8F;      //ジャンプ力
 
     private Camera mainCam;
