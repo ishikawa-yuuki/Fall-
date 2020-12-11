@@ -9,23 +9,18 @@ public class Player_Spawn : MonoBehaviourPunCallbacks
     private int size = 0;               //スポーン地点の数
     private void Start()
     {
-        size = spawn.Length;
+        size = Random.Range(0, 3);
         var gamePlayerManager = GameObject.FindWithTag("GamePlayerManager").GetComponent<GamePlayerManager>();
-        for(int i=0; i<size; ++i)
-        {
 
-            if (i == gamePlayerManager.Count)
-            {
 
-                Vector3 v = spawn[i].transform.position;
-                // マッチング後、スポーン地点を取得して自分自身のネットワークオブジェクトを生成する
-                //Photonに接続していれば自プレイヤーを生成
-                 PhotonNetwork.Instantiate(this.playerPrefab.name, v, Quaternion.identity, 0);
-                return;
-            }
-        }
-        
-        
+        Vector3 v = spawn[size].transform.position;
+        // マッチング後、スポーン地点を取得して自分自身のネットワークオブジェクトを生成する
+        //Photonに接続していれば自プレイヤーを生成
+        PhotonNetwork.Instantiate(this.playerPrefab.name, v, Quaternion.identity, 0);
+
+
+
+
 
     }
 
