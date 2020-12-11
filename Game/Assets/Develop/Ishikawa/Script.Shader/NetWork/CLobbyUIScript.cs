@@ -16,10 +16,10 @@ public class CLobbyUIScript : MonoBehaviour
     public Slider PlayerNumberSlider;   //最大入室可能人数用Slider
     public TextMeshProUGUI PlayerNumberText;       //最大入室可能人数表示用Text
     public Button CreateRoomButton;     //部屋作成ボタン
-
     // Update is called once per frame
     void Update()
     {
+       
         //部屋人数Sliderの値をTextに代入
         PlayerNumberText.text = PlayerNumberSlider.value.ToString();
 
@@ -60,7 +60,10 @@ public class CLobbyUIScript : MonoBehaviour
         {
             RoomNameText.text += "MyRoom";
         }
+        
         //部屋作成
         PhotonNetwork.CreateRoom(RoomNameText.text, roomOptions, null);
+        
+        
     }
 }

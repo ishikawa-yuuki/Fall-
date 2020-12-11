@@ -15,7 +15,7 @@ namespace Com.MyCompany.MyGame
         //部屋一覧表示用オブジェクト
         public GameObject RoomParent;//ScrolViewのcontentオブジェクト
         public GameObject RoomElementPrefab;//部屋情報Prefab
-
+        public GameObject joinText;
         #endregion
 
         #region MonoBehaviour CallBacks
@@ -76,22 +76,25 @@ namespace Com.MyCompany.MyGame
         // ロビーに入った時の処理
         public override void OnJoinedLobby()
         {
+            
+           joinText.SetActive(false);
+            
             Debug.Log("OnJoinedLobby");
         }
 
-        ////ルームに入室時の処理
-        //public override void OnJoinedRoom()
-        //{
-        //   // Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaa");
-        //    // 自身がルームに参加した時に満員になったら、以降そのルームを参加拒否設定にする
-        //    //if (PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
-        //    //{
-        //    //   // Debug.Log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-        //    //    PhotonNetwork.CurrentRoom.IsOpen = false;
-        //    //}
-        //    //プレイヤーローカル変数初期化
-        //    //LocalVariables.VariableReset();
-        //}
+        //ルームに入室時の処理
+        public override void OnJoinedRoom()
+        {
+            Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaa");
+            // 自身がルームに参加した時に満員になったら、以降そのルームを参加拒否設定にする
+            //if (PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
+            //{
+            //   // Debug.Log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+            //    PhotonNetwork.CurrentRoom.IsOpen = false;
+            //}
+            //プレイヤーローカル変数初期化
+            //LocalVariables.VariableReset();
+        }
         //ルーム作成時の処理(作成者しか実行されない)
         public override void OnCreatedRoom()
         {
