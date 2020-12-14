@@ -28,6 +28,7 @@ public class Plane_Down : MonoBehaviour
     //    }
     private Animator anime;
     bool anim;
+    public GameObject plane;
     void Start()
         {
           anime = GetComponent<Animator>();
@@ -42,8 +43,9 @@ public class Plane_Down : MonoBehaviour
             Invoke("SpawnObject", Random.Range(40.0f, 120.0f));
             // SpawnObject()を呼び出し待機中につき呼び出されるまではInvake()を呼ばないようにする
             anim = true;
-            
 
+
+           
         }
     }
     void SpawnObject()
@@ -51,6 +53,7 @@ public class Plane_Down : MonoBehaviour
        
         anim = false;
         anime.SetBool("Plane_Down", true);
+        Destroy(plane, 2.5f);
         Debug.Log("a");
     }
 }

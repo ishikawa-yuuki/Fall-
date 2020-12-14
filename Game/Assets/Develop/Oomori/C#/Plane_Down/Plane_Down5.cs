@@ -28,20 +28,21 @@ public class Plane_Down5 : MonoBehaviour
 //    }
     private Animator anime;
     bool anim;
+    public GameObject plane5;
     void Start()
     {
     anime = GetComponent<Animator>();
     anime.SetBool("Plane_Down", false);
     }
     void Update()
-    {   
-    if (anim == false)
     {
-        // 1.0秒から5.0秒の間のランダムな時間でSpawnObject()を呼び出す
-        // 都合のよい値に変えてください
-        Invoke("SpawnObject", Random.Range(30.0f, 50.0f));
-        // SpawnObject()を呼び出し待機中につき呼び出されるまではInvake()を呼ばないようにする
-        anim = true;
+        if (anim == false)
+        {
+            // 1.0秒から5.0秒の間のランダムな時間でSpawnObject()を呼び出す
+            // 都合のよい値に変えてください
+            Invoke("SpawnObject", Random.Range(40.0f, 120.0f));
+            // SpawnObject()を呼び出し待機中につき呼び出されるまではInvake()を呼ばないようにする
+            anim = true;
 
 
         }
@@ -49,8 +50,11 @@ public class Plane_Down5 : MonoBehaviour
     void SpawnObject()
     {
 
-    anim = false;
-    anime.SetBool("Plane_Down", true);
-    Debug.Log("6");
+        anim = false;
+        anime.SetBool("Plane_Down", true);
+        Destroy(plane5, 2.5f);
+        
+        Debug.Log("6");
+        
     }
 }

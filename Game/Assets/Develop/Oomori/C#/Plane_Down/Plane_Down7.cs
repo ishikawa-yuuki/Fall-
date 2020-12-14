@@ -28,6 +28,7 @@ public class Plane_Down7 : MonoBehaviour
     //}
     private Animator anime;
     bool anim;
+    public GameObject plane7;
     void Start()
     {
         anime = GetComponent<Animator>();
@@ -51,6 +52,8 @@ public class Plane_Down7 : MonoBehaviour
 
         anim = false;
         anime.SetBool("Plane_Down", true);
+        Destroy(plane7, 2.5f);
         Debug.Log("a");
+        
     }
 }
