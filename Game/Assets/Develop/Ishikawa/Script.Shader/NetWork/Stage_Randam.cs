@@ -10,6 +10,6 @@ public class Stage_Randam : MonoBehaviour
         int i;
         string[] names = new string[] { "Jump_ShowDown", "Hexagon" };
          i = Random.Range(0, names.Length);
-        PhotonNetwork.LoadLevel(names[i]);
+        PhotonNetwork.LoadLevel(names[1]);
     }
 }

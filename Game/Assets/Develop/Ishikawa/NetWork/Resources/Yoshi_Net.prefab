@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b757fe9d9cef62458920c05c5914a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
+  state: 0
 --- !u!1 &1188122502107610603
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5593760b976a1684686047080d3c8f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI: {fileID: 1188122500945796109}
   myPV: {fileID: 8032406897091222252}
   myPTV: {fileID: 6474813428108172079}
   moveSpeed: 6
