@@ -6,6 +6,8 @@ using Photon.Realtime;
 public class N_Player_Move : MonoBehaviour
 {
     //十字キーとマウスで操作(矢印キー＝前後左右移動，マウス左右＝回転)
+
+    public GameObject UI;
     //オンライン化に必要なコンポーネントを設定
     public PhotonView myPV;
     public PhotonTransformView myPTV;
@@ -45,6 +47,7 @@ public class N_Player_Move : MonoBehaviour
             //MainCameraのtargetにこのゲームオブジェクトを設定
             mainCam = Camera.main;
             mainCam.GetComponent<N_Player_Camera>().target = this.gameObject.transform;
+            UI.GetComponent<UIController_World>().SetState(true);
         }
         rd = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();

@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+
 public class Main1 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private readonly int rast =1;
     void Awake()
     {
         //ルーム内のクライアントがMasterClientと同じシーンをロードするように設定
@@ -23,8 +20,9 @@ public class Main1 : MonoBehaviour
         {
             //できていれば遷移。
             SceneManager.LoadScene("result");
+            return;
         }
-        if (Input.GetMouseButtonDown(0))
+        if ( rast == PhotonNetwork.CurrentRoom.PlayerCount)
         {
             //ネットワーク切断
             PhotonNetwork.Disconnect();
