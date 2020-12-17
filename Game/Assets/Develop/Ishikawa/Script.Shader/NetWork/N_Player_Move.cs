@@ -18,6 +18,7 @@ public class N_Player_Move : MonoBehaviour
     private Animator anim;
     private Vector3 velocity;
     private bool isGround = false;
+    private bool pose = false;
     private Rigidbody rd;
     private float h, v;
     private float d = 0.4f;
@@ -57,12 +58,16 @@ public class N_Player_Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!myPV.IsMine)
+        if (!myPV.IsMine)//ネット上の操作キャラであるかの判定
         {
             return;
         }
-        //　確認の為レイを視覚的に見えるようにする
-        Debug.DrawLine(stepRay.position + Vector3.up * 0.1f, stepRay.position + Vector3.down * d, Color.red);
+        if (pose)//カウント中、止めるため用
+        {
+            return;
+        }
+            //　確認の為レイを視覚的に見えるようにする
+            Debug.DrawLine(stepRay.position + Vector3.up * 0.1f, stepRay.position + Vector3.down * d, Color.red);
         if (isGround)
         {
             velocity = Vector3.zero;
@@ -134,9 +139,9 @@ public class N_Player_Move : MonoBehaviour
     }
     void FixedUpdate()
     {
-
-        rd.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
-
+        
+          rd.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
+      
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -166,5 +171,9 @@ public class N_Player_Move : MonoBehaviour
                 isGround = false;
             }
         }
+    }
+    public void SetPose(bool p)
+    {
+        pose = p;
     }
 }

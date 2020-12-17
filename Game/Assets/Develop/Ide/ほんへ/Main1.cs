@@ -15,14 +15,14 @@ public class Main1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
         if (!PhotonNetwork.IsConnected)//接続を確認(切断できているかを知るため)
         {
             //できていれば遷移。
             SceneManager.LoadScene("result");
             return;
         }
-        if ( rast == PhotonNetwork.CurrentRoom.PlayerCount)
+        if (rast == PhotonNetwork.CurrentRoom.PlayerCount)
         {
             //ネットワーク切断
             PhotonNetwork.Disconnect();
