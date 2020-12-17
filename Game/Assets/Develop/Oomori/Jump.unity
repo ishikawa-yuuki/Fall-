@@ -379,6 +379,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1900678643, guid: 2989aaa1dc9195b48befa73123a1b165, type: 3}
+      propertyPath: plane2
+      value: 
+      objectReference: {fileID: 1900678635}
     - target: {fileID: 765190316413080088, guid: 2989aaa1dc9195b48befa73123a1b165,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -541,6 +545,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8810245046640292835, guid: 2989aaa1dc9195b48befa73123a1b165, type: 3}
+    - {fileID: 1900678641, guid: 2989aaa1dc9195b48befa73123a1b165, type: 3}
+    - {fileID: 1900678642, guid: 2989aaa1dc9195b48befa73123a1b165, type: 3}
+    - {fileID: 1900678676, guid: 2989aaa1dc9195b48befa73123a1b165, type: 3}
+    - {fileID: 1900678644, guid: 2989aaa1dc9195b48befa73123a1b165, type: 3}
+    - {fileID: 1900678645, guid: 2989aaa1dc9195b48befa73123a1b165, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2989aaa1dc9195b48befa73123a1b165, type: 3}
 --- !u!1 &1900678628 stripped
 GameObject:
@@ -719,6 +728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b9433991c9f92468e3e7b55f48b9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plane: {fileID: 1900678628}
 --- !u!114 &1900678642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,18 +741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6fe90909d3b00408bd13a3682fa5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1900678643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900678635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 674834263907eaa4b90342212f060b02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  plane1: {fileID: 1900678636}
 --- !u!114 &1900678645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,6 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a39924255b9ff94ab26ea282cc9d68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plane7: {fileID: 1900678630}
 --- !u!114 &1900678676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,6 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6a340437416894a9c2c124336a8208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plane3: {fileID: 1900678634}
 --- !u!114 &1900678678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,3 +780,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b24db764d02904e8f15316b617cd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plane5: {fileID: 1900678632}
