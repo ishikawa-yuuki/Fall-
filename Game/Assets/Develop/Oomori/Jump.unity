@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _center: {x: 0, y: 0, z: 0}
   _axis: {x: 0, y: 0, z: 1}
-  _period: 4
+  _period: 6
   _updateRotation: 1
 --- !u!1 &841667788
 GameObject:
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _center: {x: 0, y: 0, z: 0}
   _axis: {x: 0, y: 0, z: 1}
-  _period: 3
+  _period: 5
   _updateRotation: 1
 --- !u!1001 &1900678627
 PrefabInstance:
@@ -379,6 +379,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 444987618, guid: 2989aaa1dc9195b48befa73123a1b165, type: 3}
+      propertyPath: _period
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212768771, guid: 2989aaa1dc9195b48befa73123a1b165, type: 3}
+      propertyPath: _period
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1900678643, guid: 2989aaa1dc9195b48befa73123a1b165, type: 3}
       propertyPath: plane2
       value: 
@@ -701,21 +709,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &1900678640
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900678628}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 95eff7a1ee98a714084c1861a0c7239f, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &1900678641
 MonoBehaviour:
   m_ObjectHideFlags: 0
