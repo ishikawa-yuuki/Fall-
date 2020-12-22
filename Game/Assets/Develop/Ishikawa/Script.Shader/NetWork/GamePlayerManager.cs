@@ -29,5 +29,8 @@ public class GamePlayerManager : MonoBehaviourPunCallbacks
            
         }
     }
-
+    public int GetPlayerCount()
+    {
+        return Count;
+    }
 }

@@ -19,7 +19,7 @@ public class Count_kari : MonoBehaviour
         GetAllChildObject();
         for (int i = 0; i < ParentObject.transform.childCount; i++)
         {
-            ChildObject[i].GetComponent<Delete_Floor>().enabled = false;
+            ChildObject[i].GetComponent<Delete_Floor>().SetPose(true);
         }
     }
 
@@ -36,7 +36,7 @@ public class Count_kari : MonoBehaviour
             //床
             for (int i = 0; i < ParentObject.transform.childCount; i++)
             {
-                ChildObject[i].GetComponent<Delete_Floor>().enabled = true;
+                ChildObject[i].GetComponent<Delete_Floor>().SetPose(false);
             }
             //player
             for (int i = 0; i < P_ParentObject.transform.childCount; i++)

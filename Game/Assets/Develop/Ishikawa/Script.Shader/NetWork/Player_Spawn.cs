@@ -14,7 +14,8 @@ public class Player_Spawn : MonoBehaviourPunCallbacks
     }
    private void PlayerInstantiate()
     {
-        Vector3 v = spawn[PhotonNetwork.LocalPlayer.GetHashCode()].transform.position;
+        //ローカルIDが１から始まるので1引く。
+        Vector3 v = spawn[PhotonNetwork.LocalPlayer.GetHashCode()-1].transform.position;
         // マッチング後、スポーン地点を取得して自分自身のネットワークオブジェクトを生成する
         //Photonに接続していれば自プレイヤーを生成
         PhotonNetwork.Instantiate(this.playerPrefab.name, v, Quaternion.identity, 0);

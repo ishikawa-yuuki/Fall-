@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Delete_Floor : MonoBehaviour
 {
+    private bool pose = false;
     private bool Falling;
     private float deleteTime = 0.6f;
     public int selectNum;
@@ -27,6 +28,10 @@ public class Delete_Floor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(pose)
+        {
+            return;
+        }
         if (Falling)
         {
 
@@ -51,5 +56,9 @@ public class Delete_Floor : MonoBehaviour
             white_m.a = 0.5f;
             this.GetComponent<Renderer>().material.color = white_m;
         }
+    }
+    public void SetPose(bool p)
+    {
+        pose = p;
     }
 }
