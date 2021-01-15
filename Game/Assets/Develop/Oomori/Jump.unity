@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _center: {x: 0, y: 0, z: 0}
   _axis: {x: 0, y: 0, z: 1}
-  _period: 6
+  _period: 5
   _updateRotation: 1
 --- !u!1 &841667788
 GameObject:
