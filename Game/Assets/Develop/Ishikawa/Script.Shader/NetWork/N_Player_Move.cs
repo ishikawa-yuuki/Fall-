@@ -43,7 +43,7 @@ public class N_Player_Move : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if (myPV.IsMine)    //自キャラであれば実行
+        if (myPV.IsMine&& PhotonNetwork.IsConnected)    //自キャラであれば実行
         {
             //MainCameraのtargetにこのゲームオブジェクトを設定
             mainCam = Camera.main;
@@ -58,11 +58,7 @@ public class N_Player_Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!myPV.IsMine)//ネット上の操作キャラであるかの判定
-        {
-            return;
-        }
-        if (pose)//カウント中、止めるため用
+        if (!myPV.IsMine || pose || !PhotonNetwork.IsConnected)//ネット上の操作キャラであるかの判定,カウント中、止めるため用
         {
             return;
         }
