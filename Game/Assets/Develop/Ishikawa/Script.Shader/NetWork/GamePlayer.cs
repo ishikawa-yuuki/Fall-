@@ -8,10 +8,12 @@ public class GamePlayer : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        
-        var gamePlayerManager = GameObject.FindWithTag("GamePlayerManager").GetComponent<GamePlayerManager>();
-        transform.SetParent(gamePlayerManager.transform);
+        if (PhotonNetwork.IsConnected)
+        {
+            var gamePlayerManager = GameObject.FindWithTag("GamePlayerManager").GetComponent<GamePlayerManager>();
+            transform.SetParent(gamePlayerManager.transform);
+        }
     }
   
-    // 省略
+  
 }

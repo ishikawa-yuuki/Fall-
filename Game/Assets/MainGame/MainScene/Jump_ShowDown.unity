@@ -1343,6 +1343,12 @@ PrefabInstance:
       propertyPath: spawn.Array.data[3]
       value: 
       objectReference: {fileID: 735147787}
+    - target: {fileID: 5226050643175764553, guid: 0189f61221337694fb6a89b5e47cbf00,
+        type: 3}
+      propertyPath: myGameManagerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 804e7737dc08ca84aaa53fda0c8d3e41,
+        type: 2}
     - target: {fileID: 5226050643175764557, guid: 0189f61221337694fb6a89b5e47cbf00,
         type: 3}
       propertyPath: m_Name
