@@ -849,6 +849,7 @@ GameObject:
   - component: {fileID: 631501877129678027}
   - component: {fileID: 2061401928534765802}
   - component: {fileID: 4276652663943930831}
+  - component: {fileID: -7861913188954608334}
   m_Layer: 8
   m_Name: defult_skin
   m_TagString: Player
@@ -863,8 +864,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5594814142245717136}
-  m_LocalRotation: {x: -0, y: 0.9310695, z: -0, w: -0.364842}
-  m_LocalPosition: {x: -15.081309, y: 2.5, z: -110.2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5340324809701370652}
@@ -873,7 +874,7 @@ Transform:
   - {fileID: 4712361701760715754}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 222.79599, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4712361701367573549
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -968,6 +969,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: isWalk
+  - Type: 9
+    SynchronizeType: 0
+    Name: Result
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -1004,6 +1008,8 @@ MonoBehaviour:
   moveSpeed: 6
   jumpSpeed: 8
   stepRay: {fileID: 4712361701390296256}
+  sound_walk: {fileID: 8300000, guid: 16239f8dbc90d7246bfcc7055f26501b, type: 3}
+  sound_jump: {fileID: 8300000, guid: 16239f8dbc90d7246bfcc7055f26501b, type: 3}
 --- !u!114 &4276652663943930831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,6 +1022,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99da38927d306234fad5d98ff3467e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &-7861913188954608334
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594814142245717136}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7741270464954322258
 GameObject:
   m_ObjectHideFlags: 0

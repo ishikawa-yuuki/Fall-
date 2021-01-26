@@ -9,7 +9,25 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CHR_Yoshi
+    second: {fileID: -5755717843314454321, guid: 0faf23d8551ee08499fd8d55ed6c10a4,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_FALLGUYS
+    second: {fileID: 6845945610958708885, guid: 0faf23d8551ee08499fd8d55ed6c10a4,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_Yoshi_PANTS
+    second: {fileID: -2818447767499330917, guid: 0faf23d8551ee08499fd8d55ed6c10a4,
+      type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -90,7 +108,35 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.07463769
+        functionName: PlayFootstepSE
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.32278228
+        functionName: PlayFootstepSE
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.61853534
+        functionName: PlayFootstepSE
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.85903585
+        functionName: PlayFootstepSE
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
