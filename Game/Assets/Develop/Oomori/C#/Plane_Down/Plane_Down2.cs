@@ -28,7 +28,7 @@ public class Plane_Down2 : MonoBehaviour
     //}
 
     private Animator anime;
-    bool anim;
+    public bool Plane_Down2Anim;
     public GameObject plane2;
     void Start()
     {
@@ -37,13 +37,13 @@ public class Plane_Down2 : MonoBehaviour
     }
     void Update()
     {
-        if (anim == false)
+        if (Plane_Down2Anim == false)
         {
             // 1.0秒から5.0秒の間のランダムな時間でSpawnObject()を呼び出す
             // 都合のよい値に変えてください
             Invoke("SpawnObject", Random.Range(40.0f, 120.0f));
             // SpawnObject()を呼び出し待機中につき呼び出されるまではInvake()を呼ばないようにする
-            anim = true;
+            Plane_Down2Anim = true;
             
 
         }
@@ -51,7 +51,7 @@ public class Plane_Down2 : MonoBehaviour
     void SpawnObject()
     {
 
-        anim = false;
+        Plane_Down2Anim = false;
         anime.SetBool("Plane_Down", true);
         Destroy(plane2, 2.5f);
         Debug.Log("2");

@@ -26,33 +26,34 @@ public class Plane_Down : MonoBehaviour
 
     //        }
     //    }
-    private Animator anime;
-    bool anim;
+    private Animator Plane_DownAnimator;
+   public bool Plane_DownAnim;
     public GameObject plane;
     void Start()
         {
-          anime = GetComponent<Animator>();
-          anime.SetBool("Plane_Down", false);
+          Plane_DownAnimator = GetComponent<Animator>();
+          Plane_DownAnimator.SetBool("Plane_Down", false);
        }
     void Update()
     {
-        if (anim == false)
+        if (Plane_DownAnim == false)
         {
             // 1.0秒から5.0秒の間のランダムな時間でSpawnObject()を呼び出す
             // 都合のよい値に変えてください
             Invoke("SpawnObject", Random.Range(40.0f, 120.0f));
             // SpawnObject()を呼び出し待機中につき呼び出されるまではInvake()を呼ばないようにする
-            anim = true;
+            Plane_DownAnim = true;
 
 
            
         }
+                
     }
     void SpawnObject()
     {
        
-        anim = false;
-        anime.SetBool("Plane_Down", true);
+        Plane_DownAnim = false;
+        Plane_DownAnimator.SetBool("Plane_Down", true);
         Destroy(plane, 2.5f);
         Debug.Log("a");
     }
