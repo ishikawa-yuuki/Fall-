@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 4276652663943930831}
   - component: {fileID: -7861913188954608334}
   m_Layer: 8
-  m_Name: defult_skin
+  m_Name: n_defult_skin
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
