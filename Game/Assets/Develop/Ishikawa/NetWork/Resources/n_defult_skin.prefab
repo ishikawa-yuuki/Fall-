@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 4276652663943930831}
   - component: {fileID: -7861913188954608334}
   m_Layer: 8
-  m_Name: defult_skin
+  m_Name: n_defult_skin
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1009,7 +1009,7 @@ MonoBehaviour:
   jumpSpeed: 8
   stepRay: {fileID: 4712361701390296256}
   sound_walk: {fileID: 8300000, guid: 16239f8dbc90d7246bfcc7055f26501b, type: 3}
-  sound_jump: {fileID: 8300000, guid: 16239f8dbc90d7246bfcc7055f26501b, type: 3}
+  sound_jump: {fileID: 8300000, guid: 48553afb24081ec40af695ca932f84ab, type: 3}
 --- !u!114 &4276652663943930831
 MonoBehaviour:
   m_ObjectHideFlags: 0

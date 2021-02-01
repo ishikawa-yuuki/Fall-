@@ -426,7 +426,7 @@ MonoBehaviour:
   jumpSpeed: 8
   stepRay: {fileID: 1188122500712215332}
   sound_walk: {fileID: 8300000, guid: 16239f8dbc90d7246bfcc7055f26501b, type: 3}
-  sound_jump: {fileID: 8300000, guid: 16239f8dbc90d7246bfcc7055f26501b, type: 3}
+  sound_jump: {fileID: 8300000, guid: 48553afb24081ec40af695ca932f84ab, type: 3}
 --- !u!114 &7656431554448897067
 MonoBehaviour:
   m_ObjectHideFlags: 0
