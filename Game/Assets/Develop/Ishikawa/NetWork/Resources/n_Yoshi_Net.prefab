@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 7656431554448897067}
   - component: {fileID: 2912700142396065296}
   m_Layer: 8
-  m_Name: Yoshi_Net
+  m_Name: n_Yoshi_Net
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
