@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Com.MyCompany.MyGame
 {
@@ -86,14 +82,7 @@ namespace Com.MyCompany.MyGame
         public override void OnJoinedRoom()
         {
             Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaa");
-            // 自身がルームに参加した時に満員になったら、以降そのルームを参加拒否設定にする
-            //if (PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
-            //{
-            //   // Debug.Log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-            //    PhotonNetwork.CurrentRoom.IsOpen = false;
-            //}
-            //プレイヤーローカル変数初期化
-            //LocalVariables.VariableReset();
+          
         }
         //ルーム作成時の処理(作成者しか実行されない)
         public override void OnCreatedRoom()

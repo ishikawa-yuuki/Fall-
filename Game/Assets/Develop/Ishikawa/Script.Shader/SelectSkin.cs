@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace SelectCharacter
 {
@@ -12,11 +9,7 @@ namespace SelectCharacter
         private MyGameManagerData myGameManagerData = null;
         [SerializeField]
         private Spawn_skin   skin = null;
-        private void Start()
-        {
-           
-          
-        }
+
         //　キャラクターを選択した時に実行しキャラクターデータをMyGameManagerDataにセット
         public void OnSelectCharacter(GameObject character)
         {

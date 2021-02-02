@@ -2,7 +2,6 @@
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
-using Photon.Realtime;
 public class GamePlayerManager : MonoBehaviourPunCallbacks
 {
     private List<GamePlayer> playerList = new List<GamePlayer>();

@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Count_kari : MonoBehaviour
 {
     [SerializeField]
-    private GameObject ParentObject;
+    private GameObject ParentObject = null;
     [SerializeField]
-    private GameObject P_ParentObject;
+    private GameObject P_ParentObject = null;
 
     private GameObject[] P_ChildObject;
     private GameObject[] ChildObject;
