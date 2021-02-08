@@ -17,10 +17,15 @@ namespace Com.MyCompany.MyGame
         #region MonoBehaviour CallBacks
         void Awake()
         {
+            //ルームから退室したら通る用
+            if (PhotonNetwork.IsConnectedAndReady)
+            {
+                joinText.SetActive(false);
+            }
             //ルーム内のクライアントがMasterClientと同じシーンをロードするように設定
             PhotonNetwork.AutomaticallySyncScene = true;
         }
-
+       
         #endregion
 
         #region Public Methods
@@ -60,6 +65,7 @@ namespace Com.MyCompany.MyGame
         // ルームリストに更新があった時
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
+            
             Debug.Log("OnRoomListUpdate");
             DestroyChildObject(RoomParent.transform);   //RoomElementを削除
             GetRooms(roomList);
@@ -67,6 +73,7 @@ namespace Com.MyCompany.MyGame
         // マスターサーバーへの接続が成功した時に呼ばれるコールバック
         public override void OnConnectedToMaster()
         {
+            joinText.SetActive(false);
             PhotonNetwork.JoinLobby();
         }
         // ロビーに入った時の処理

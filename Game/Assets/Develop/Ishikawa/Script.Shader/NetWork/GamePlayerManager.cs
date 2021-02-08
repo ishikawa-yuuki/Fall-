@@ -20,6 +20,10 @@ public class GamePlayerManager : MonoBehaviourPunCallbacks
         {
             return;
         }
+        if (Count ==0)
+        {
+            return;
+        }
         PlayerNumber.text =  Count + "/" +PhotonNetwork.CurrentRoom.MaxPlayers;
         if (PhotonNetwork.IsMasterClient&&Count == PhotonNetwork.CurrentRoom.MaxPlayers)
         {
