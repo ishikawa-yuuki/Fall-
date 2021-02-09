@@ -19,8 +19,8 @@ public class GamePlayerManager : MonoBehaviourPunCallbacks
         if(PlayerNumber == null)
         {
             return;
-        }
-        if (Count ==0)
+        }//ルームを抜ける際のバグ訂正
+        if (Count ==0 ||!PhotonNetwork.InRoom)
         {
             return;
         }
