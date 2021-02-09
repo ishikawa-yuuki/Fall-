@@ -7,8 +7,10 @@ using Photon.Pun;
 public class Main1 : MonoBehaviour
 {
     private readonly int rast =1;
+    public GameObject die =null;
     void Awake()
     {
+       
         //ルーム内のクライアントがMasterClientと同じシーンをロードするように設定
         PhotonNetwork.AutomaticallySyncScene = false;
     }
@@ -16,7 +18,7 @@ public class Main1 : MonoBehaviour
     void Update()
     {
 
-        if (!PhotonNetwork.IsConnected)//接続を確認(切断できているかを知るため)
+        if (!PhotonNetwork.IsConnected && !die.GetComponent<Player_Die>().GetDead())//接続を確認(切断できているかを知るため)
         {
             //できていれば遷移。
             SceneManager.LoadScene("result");

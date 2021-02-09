@@ -23,4 +23,8 @@ public class Player_Die : MonoBehaviour
             PhotonNetwork.Disconnect();
         }
     }
+    public bool GetDead()
+    {
+        return die;
+    }
 }
