@@ -10,7 +10,7 @@ public class CLobbyUIScript : MonoBehaviour
 
     //部屋作成ウインドウ
     public GameObject CreateRoomPanel;  //部屋作成ウインドウ
-    public TextMeshProUGUI RoomNameText;           //作成する部屋名
+    public TMP_InputField RoomNameText;           //作成する部屋名
     public Slider PlayerNumberSlider;   //最大入室可能人数用Slider
     public TextMeshProUGUI PlayerNumberText;       //最大入室可能人数表示用Text
     public Button CreateRoomButton;     //部屋作成ボタン
@@ -61,9 +61,9 @@ public class CLobbyUIScript : MonoBehaviour
         // 部屋名がなければデフォルトの部屋名を設定
         if (string.IsNullOrEmpty(RoomNameText.text))
         {
-            RoomNameText.text += "MyRoom";
+            RoomNameText.text += "MyRoom"+Random.Range(0,9999);
         }
-        
+        Debug.Log(RoomNameText.text);
         //部屋作成
         PhotonNetwork.CreateRoom(RoomNameText.text, roomOptions, null);
         
