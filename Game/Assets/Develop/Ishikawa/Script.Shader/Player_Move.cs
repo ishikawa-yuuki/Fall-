@@ -7,7 +7,7 @@ public class Player_Move : MonoBehaviour
     //十字キーとマウスで操作(矢印キー＝前後左右移動，マウス左右＝回転)
 
     private float moveSpeed = 10.0f;              // 移動速度
-    private float moveForceMultiplier=50.0f;    // 移動速度の入力に対する追従度
+    //private float moveForceMultiplier=50.0f;    // 移動速度の入力に対する追従度
    
     
     public float jumpSpeed = 0.8F;      //ジャンプ力

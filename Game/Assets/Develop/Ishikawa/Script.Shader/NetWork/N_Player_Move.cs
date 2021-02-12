@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Photon.Pun;
-using Photon.Realtime;
+using UnityEngine.SceneManagement;
 public class N_Player_Move : MonoBehaviour
 {
     //十字キーとマウスで操作(矢印キー＝前後左右移動，マウス左右＝回転)
@@ -27,22 +25,18 @@ public class N_Player_Move : MonoBehaviour
 
     //　段差を昇る為のレイを飛ばす位置
     [SerializeField]
-    private Transform stepRay;
-    //　レイを飛ばす距離
-    //[SerializeField]
-    //private float stepDistance = 2.5f;
-    ////　昇れる段差
-    //[SerializeField]
-    //private float stepOffset = 0.3f;
-    ////　昇れる角度
-    //[SerializeField]
-    //private float slopeLimit = 65f;
-    ////　昇れる段差の位置から飛ばすレイの距離
-    //[SerializeField]
-    //private float slopeDistance = 5f;
-    // Use this for initialization
+    private Transform stepRay = null;
+
+    //SE
+    AudioSource audioSource;
+    [SerializeField]
+    private AudioClip sound_walk = null;
+    [SerializeField]
+    private AudioClip sound_jump = null;
+    
     void Start()
     {
+        
         if (myPV.IsMine&& PhotonNetwork.IsConnected)    //自キャラであれば実行
         {
             //MainCameraのtargetにこのゲームオブジェクトを設定
@@ -50,9 +44,15 @@ public class N_Player_Move : MonoBehaviour
             mainCam.GetComponent<N_Player_Camera>().target = this.gameObject.transform;
             UI.GetComponent<UIController_World>().SetState(true);
         }
+        audioSource = GetComponent<AudioSource>();
         rd = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         layerMask = ~(1 << LayerMask.NameToLayer("Player"));
+        if (SceneManager.GetActiveScene().name == "result")
+        {
+            anim.SetTrigger("Result");
+        }
+        
     }//Start()
 
     // Update is called once per frame
@@ -70,28 +70,6 @@ public class N_Player_Move : MonoBehaviour
 
             h = Input.GetAxis("Horizontal");    //左右矢印キーの値(-1.0~1.0)
             v = Input.GetAxis("Vertical");      //上下矢印キーの値(-1.0~1.0)
-
-            ////　ステップ用のレイが地面に接触しているかどうか
-            //if (Physics.Linecast(stepRay.position, stepRay.position + stepRay.forward * stepDistance, out var stepHit, LayerMask.GetMask("Field", "Block")))
-            //{
-            //    //　進行方向の地面の角度が指定以下、または昇れる段差より下だった場合の移動処理
-
-            //    if (Vector3.Angle(transform.up, stepHit.normal) <= slopeLimit
-            //        || (Vector3.Angle(transform.up, stepHit.normal) > slopeLimit
-            //            && !Physics.Linecast(transform.position + new Vector3(0f, stepOffset, 0f), transform.position + new Vector3(0f, stepOffset, 0f) + transform.forward * slopeDistance, LayerMask.GetMask("Field", "Block")))
-            //    )
-            //    {
-            //        velocity = new Vector3(0f, (Quaternion.FromToRotation(Vector3.up, stepHit.normal) * transform.forward * moveSpeed).y, 0f) + transform.forward * moveSpeed;
-            //        Debug.Log(Vector3.Angle(transform.up, stepHit.normal));
-
-            //    }
-            //    else
-            //    {
-            //        velocity += transform.forward * moveSpeed;
-            //    }
-
-            //    Debug.Log(Vector3.Angle(Vector3.up, stepHit.normal));
-            //}
 
             // カメラの方向から、X-Z平面の単位ベクトルを取得
             Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
@@ -116,6 +94,7 @@ public class N_Player_Move : MonoBehaviour
                 velocity *= 0.6f;
                 velocity.y += jumpSpeed;
                 anim.SetTrigger("Jump");
+                audioSource.PlayOneShot(sound_jump);
             }
 
             // キャラクターの向きを進行方向に
@@ -171,5 +150,10 @@ public class N_Player_Move : MonoBehaviour
     public void SetPose(bool p)
     {
         pose = p;
+    }
+
+    public void PlayFootstepSE()
+    {
+        audioSource.PlayOneShot(sound_walk);
     }
 }

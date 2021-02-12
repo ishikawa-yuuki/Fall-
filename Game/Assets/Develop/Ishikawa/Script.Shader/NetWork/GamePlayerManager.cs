@@ -2,7 +2,6 @@
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
-using Photon.Realtime;
 public class GamePlayerManager : MonoBehaviourPunCallbacks
 {
     private List<GamePlayer> playerList = new List<GamePlayer>();
@@ -18,6 +17,10 @@ public class GamePlayerManager : MonoBehaviourPunCallbacks
             playerList.Add(child.GetComponent<GamePlayer>());
         }
         if(PlayerNumber == null)
+        {
+            return;
+        }//ルームを抜ける際のバグ訂正
+        if (Count ==0 ||!PhotonNetwork.InRoom)
         {
             return;
         }

@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Com.MyCompany.MyGame
 {
@@ -21,10 +17,15 @@ namespace Com.MyCompany.MyGame
         #region MonoBehaviour CallBacks
         void Awake()
         {
+            //ルームから退室したら通る用
+            if (PhotonNetwork.IsConnectedAndReady)
+            {
+                joinText.SetActive(false);
+            }
             //ルーム内のクライアントがMasterClientと同じシーンをロードするように設定
             PhotonNetwork.AutomaticallySyncScene = true;
         }
-
+       
         #endregion
 
         #region Public Methods
@@ -64,6 +65,7 @@ namespace Com.MyCompany.MyGame
         // ルームリストに更新があった時
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
+            
             Debug.Log("OnRoomListUpdate");
             DestroyChildObject(RoomParent.transform);   //RoomElementを削除
             GetRooms(roomList);
@@ -71,6 +73,7 @@ namespace Com.MyCompany.MyGame
         // マスターサーバーへの接続が成功した時に呼ばれるコールバック
         public override void OnConnectedToMaster()
         {
+            joinText.SetActive(false);
             PhotonNetwork.JoinLobby();
         }
         // ロビーに入った時の処理
@@ -86,14 +89,7 @@ namespace Com.MyCompany.MyGame
         public override void OnJoinedRoom()
         {
             Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaa");
-            // 自身がルームに参加した時に満員になったら、以降そのルームを参加拒否設定にする
-            //if (PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
-            //{
-            //   // Debug.Log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-            //    PhotonNetwork.CurrentRoom.IsOpen = false;
-            //}
-            //プレイヤーローカル変数初期化
-            //LocalVariables.VariableReset();
+          
         }
         //ルーム作成時の処理(作成者しか実行されない)
         public override void OnCreatedRoom()

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
@@ -12,10 +10,11 @@ public class CLobbyUIScript : MonoBehaviour
 
     //部屋作成ウインドウ
     public GameObject CreateRoomPanel;  //部屋作成ウインドウ
-    public TextMeshProUGUI RoomNameText;           //作成する部屋名
+    public TMP_InputField RoomNameText;           //作成する部屋名
     public Slider PlayerNumberSlider;   //最大入室可能人数用Slider
     public TextMeshProUGUI PlayerNumberText;       //最大入室可能人数表示用Text
     public Button CreateRoomButton;     //部屋作成ボタン
+    public GameObject joinText;
     // Update is called once per frame
     void Update()
     {
@@ -44,6 +43,10 @@ public class CLobbyUIScript : MonoBehaviour
     //部屋作成ボタンを押したときの処理
     public void OnClick_CreateRoomButton()
     {
+        if (joinText.activeSelf)
+        {
+            return;
+        }
         //作成する部屋の設定
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.IsVisible = true;   //ロビーで見える部屋にする
@@ -58,9 +61,9 @@ public class CLobbyUIScript : MonoBehaviour
         // 部屋名がなければデフォルトの部屋名を設定
         if (string.IsNullOrEmpty(RoomNameText.text))
         {
-            RoomNameText.text += "MyRoom";
+            RoomNameText.text += "MyRoom"+Random.Range(0,9999);
         }
-        
+        Debug.Log(RoomNameText.text);
         //部屋作成
         PhotonNetwork.CreateRoom(RoomNameText.text, roomOptions, null);
         

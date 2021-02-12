@@ -4,11 +4,7 @@ using UnityEngine.SceneManagement;
 public class Player_Die : MonoBehaviour
 {
     private bool die = false;
-    void Awake()
-    {
-        //ルーム内のクライアントがMasterClientと同じシーンをロードするように設定
-        PhotonNetwork.AutomaticallySyncScene = false;
-    }
+  
     // Update is called once per frame
     void Update()
     {
@@ -26,5 +22,9 @@ public class Player_Die : MonoBehaviour
             //ネットワーク切断
             PhotonNetwork.Disconnect();
         }
+    }
+    public bool GetDead()
+    {
+        return die;
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Photon.Pun;
 public class Stage_Randam : MonoBehaviour
 {
@@ -10,6 +8,6 @@ public class Stage_Randam : MonoBehaviour
         int i;
         string[] names = new string[] { "Jump_ShowDown", "Hexagon" };
          i = Random.Range(0, names.Length);
-        PhotonNetwork.LoadLevel(names[1]);
+        PhotonNetwork.LoadLevel(names[i]);
     }
 }
