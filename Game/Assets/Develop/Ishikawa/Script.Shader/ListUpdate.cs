@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-public class ListUpdate : MonoBehaviour
+public class ListUpdate : MonoBehaviourPunCallbacks
 {
     public GameObject joinText;
     public void OnClicRetuButton()
@@ -11,8 +11,13 @@ public class ListUpdate : MonoBehaviour
         {
             return;
         }
-        PhotonNetwork.LeaveLobby();
-        PhotonNetwork.JoinLobby();
-        Debug.Log("List更新");
+        if (PhotonNetwork.InLobby)
+        {
+            PhotonNetwork.LeaveLobby();
+            PhotonNetwork.JoinLobby();
+            Debug.Log("List更新");
+        }
+        
     }
+
 }
