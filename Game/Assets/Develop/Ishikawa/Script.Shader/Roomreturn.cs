@@ -20,6 +20,7 @@ public class Roomreturn : MonoBehaviourPunCallbacks
   
     public override void OnConnectedToMaster()
     {
+        PhotonNetwork.JoinLobby();
         PhotonNetwork.LoadLevel("RoomCreate");
         Debug.Log("OnConnectedToMaster");
     }

@@ -4,13 +4,8 @@ using UnityEngine;
 using Photon.Pun;
 public class ListUpdate : MonoBehaviourPunCallbacks
 {
-    public GameObject joinText;
     public void OnClicRetuButton()
     {
-        if (joinText.activeSelf)
-        {
-            return;
-        }
         if (PhotonNetwork.InLobby)
         {
             PhotonNetwork.LeaveLobby();
