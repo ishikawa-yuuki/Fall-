@@ -63,7 +63,6 @@ public class CLobbyUIScript : MonoBehaviour
         {
             RoomNameText.text += "MyRoom"+Random.Range(0,9999);
         }
-        Debug.Log(RoomNameText.text);
         //部屋作成
         PhotonNetwork.CreateRoom(RoomNameText.text, roomOptions, null);
         

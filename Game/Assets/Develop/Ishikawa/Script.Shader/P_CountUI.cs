@@ -9,7 +9,7 @@ public class P_CountUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerNum = GetComponent<GamePlayerManager>().GetPlayerCount();
+        playerNum = GameObject.FindWithTag("GamePlayerManager").GetComponent<GamePlayerManager>().GetPlayerCount();
         PlayerNumber.text = clearNum + "/" + playerNum;
     }
 }

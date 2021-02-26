@@ -719,3 +719,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoomName: {fileID: 5274900842541481160}
   PlayerNumber: {fileID: 2879471255179092689}
+  joinText: {fileID: 0}

@@ -124,7 +124,7 @@ public class N_Player_Move : MonoBehaviour
         //　地面に着地したかどうかの判定
         if (Physics.CheckSphere(stepRay.position, d, layerMask))
         {
-            Debug.Log("on");
+            //Debug.Log("on");
             isGround = true;
             velocity.y = 0f;
         }
@@ -142,7 +142,7 @@ public class N_Player_Move : MonoBehaviour
             //　下向きにレイヤーを飛ばしFieldレイヤーと接触しなければ地面から離れたと判定する
             if (!Physics.Linecast(stepRay.position + Vector3.up * 0.1f, stepRay.position + Vector3.down * d, layerMask))
             {
-                Debug.Log("off");
+                //Debug.Log("off");
                 isGround = false;
             }
         }

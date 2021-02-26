@@ -37,7 +37,7 @@ namespace Com.MyCompany.MyGame
             //ルームがあればRoomElementでそれぞれのルーム情報を表示
             for (int i = 0; i < roomInfo.Count; i++)
             {
-                Debug.Log(roomInfo[i].Name + " : " + roomInfo[i].Name + "–" + roomInfo[i].PlayerCount + " / " + roomInfo[i].MaxPlayers /*+ roomInfo[i].CustomProperties["roomCreator"].ToString()*/);
+                //Debug.Log(roomInfo[i].Name + " : " + roomInfo[i].Name + "–" + roomInfo[i].PlayerCount + " / " + roomInfo[i].MaxPlayers /*+ roomInfo[i].CustomProperties["roomCreator"].ToString()*/);
 
                 //ルーム情報表示用RoomElementを生成
                 GameObject RoomElement = GameObject.Instantiate(RoomElementPrefab);
@@ -45,7 +45,7 @@ namespace Com.MyCompany.MyGame
                 //RoomElementをcontentの子オブジェクトとしてセット    
                 RoomElement.transform.SetParent(RoomParent.transform);
                 //RoomElementにルーム情報をセット
-                RoomElement.GetComponent<CRoomElementScript>().SetRoomInfo(roomInfo[i].Name, roomInfo[i].PlayerCount, roomInfo[i].MaxPlayers);
+                RoomElement.GetComponent<CRoomElementScript>().SetRoomInfo(roomInfo[i].Name, roomInfo[i].PlayerCount, roomInfo[i].MaxPlayers,joinText);
             }
         }
 
@@ -65,8 +65,11 @@ namespace Com.MyCompany.MyGame
         // ルームリストに更新があった時
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
-            
-            Debug.Log("OnRoomListUpdate");
+            if (joinText.activeSelf)
+            {
+                return;
+            }
+            Debug.Log("ルームリストが更新されました");
             DestroyChildObject(RoomParent.transform);   //RoomElementを削除
             GetRooms(roomList);
         }
@@ -82,13 +85,13 @@ namespace Com.MyCompany.MyGame
             
            joinText.SetActive(false);
             
-            Debug.Log("OnJoinedLobby");
+            Debug.Log("ロビーに入りました。");
         }
 
         //ルームに入室時の処理
         public override void OnJoinedRoom()
         {
-            Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaa");
+            Debug.Log("ルームに入室");
           
         }
         //ルーム作成時の処理(作成者しか実行されない)
